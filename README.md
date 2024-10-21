@@ -12,8 +12,8 @@ This project aims to predict customer purchases based on historical data using m
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd customer_purchase_prediction
+   git clone <https://github.com/Har2yQn78/user-purchase-prediction.git>
+   cd user_purchase_prediction
 
 Install the required packages:
 ```
