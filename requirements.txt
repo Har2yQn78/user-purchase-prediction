@@ -1,7 +1,8 @@
 pandas
 xgboost
+catboost
+lightgbm
 scikit-learn
+numpy
 joblib
-jupyter
-matplotlib
-seaborn
+scipy

@@ -1,10 +1,23 @@
-from data_preprocessing import preprocess_train_data
-from feature_engineering import load_and_prepare_data
-from model_training import train_model
-from prediction import make_predictions
+# main.py
+import argparse
+from src.train import train_models
+from src.predict import make_predictions
+
+def main():
+    parser = argparse.ArgumentParser(description="Ensemble Model Trainer and Predictor")
+    parser.add_argument('--train', action='store_true', help="Train the models on train data")
+    parser.add_argument('--predict', action='store_true', help="Predict using trained models on test data")
+    parser.add_argument('--train_data', type=str, default="data/train.csv", help="Path to training data")
+    parser.add_argument('--test_data', type=str, default="data/test.csv", help="Path to test data")
+    args = parser.parse_args()
+
+    if args.train:
+        train_models(args.train_data)
+        print("Training complete.")
+
+    if args.predict:
+        make_predictions(args.test_data)
+        print("Predictions saved to ensemble_predictions.csv")
 
 if __name__ == "__main__":
-    train_file = preprocess_train_data('train.csv')
-    X, y = load_and_prepare_data(train_file)
-    train_model(X, y)
-    make_predictions('test.csv', 'user_models.pkl')
+    main()
